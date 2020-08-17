@@ -98,9 +98,10 @@ public class EspMilightHubHandler extends BaseThingHandler {
                         bridgeHandler.queueToSendMQTT(topic, "{\"state\":\"OFF\"}");
                     } else {
                         if (bridgeHandler.getPowerFailsToMaxDim()) {
-                            bridgeHandler.queueToSendMQTT(topic, "{\"state\":\"ON\",\"level\":0}");
+                            bridgeHandler.queueToSendMQTT(topic, "{\"state\":\"OFF\",\"level\":0}");
+                        } else {
+                            bridgeHandler.queueToSendMQTT(topic, "{\"state\":\"OFF\"}");
                         }
-                        bridgeHandler.queueToSendMQTT(topic, "{\"state\":\"OFF\"}");
                     }
                     return;
                 } else if ("ON".equals(command.toString())) {
@@ -179,10 +180,10 @@ public class EspMilightHubHandler extends BaseThingHandler {
                 } else if ("0".equals(command.toString()) || "OFF".equals(command.toString())) {
 
                     if (bridgeHandler.getPowerFailsToMaxDim()) {
-                        bridgeHandler.queueToSendMQTT(topic, "{\"state\":\"ON\",\"level\":0}");
+                        bridgeHandler.queueToSendMQTT(topic, "{\"state\":\"OFF\",\"level\":0}");
+                    } else {
+                        bridgeHandler.queueToSendMQTT(topic, "{\"state\":\"OFF\"}");
                     }
-
-                    bridgeHandler.queueToSendMQTT(topic, "{\"state\":\"OFF\"}");
                     break;
                 }
 
@@ -207,10 +208,10 @@ public class EspMilightHubHandler extends BaseThingHandler {
                     else if (hsb.getBrightness().intValue() == 0) {
 
                         if (bridgeHandler.getPowerFailsToMaxDim()) {
-                            bridgeHandler.queueToSendMQTT(topic, "{\"state\":\"ON\",\"level\":0}");
+                            bridgeHandler.queueToSendMQTT(topic, "{\"state\":\"OFF\",\"level\":0}");
+                        } else {
+                            bridgeHandler.queueToSendMQTT(topic, "{\"state\":\"OFF\"}");
                         }
-
-                        bridgeHandler.queueToSendMQTT(topic, "{\"state\":\"OFF\"}");
                         break;
                     }
                     // Handle feature for CONFIG_RGBW_WHITEMODE_SAT_THRESHOLD//////////////////////////////////////
