@@ -423,7 +423,7 @@ public class EspMilightHubBridgeHandler extends BaseBridgeHandler implements Mqt
 
         try {
             if (fifoOutgoingTopic.size() > 1 && fifoOutgoingTopic.getLast().equals(topic)
-                    && !fifoOutgoingPayload.getLast().equals("{\"state\":\"ON\",\"level\":0}")) {
+                    && !fifoOutgoingPayload.getLast().equals("{\"state\":\"OFF\",\"level\":0}")) {
                 lockOutGoing.lock();
                 try {
                     logger.debug("Message reduction has removed a MQTT message.");
