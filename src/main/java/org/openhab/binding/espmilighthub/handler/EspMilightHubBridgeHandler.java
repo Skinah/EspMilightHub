@@ -513,7 +513,6 @@ public class EspMilightHubBridgeHandler extends BaseBridgeHandler implements Mqt
 
     @Override
     public void handleCommand(ChannelUID channelUID, Command command) {
-
     }
 
     public int getTriggerWhiteHue() {

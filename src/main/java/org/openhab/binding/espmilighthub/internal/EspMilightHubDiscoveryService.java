@@ -164,7 +164,6 @@ public class EspMilightHubDiscoveryService extends AbstractDiscoveryService {
 
     @Override
     protected void startBackgroundDiscovery() {
-
     };
 
     @Override

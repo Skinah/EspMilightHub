@@ -1,14 +1,14 @@
 # <bindingName> Binding
 
-This is a new Openhab 2.x binding that allows a single opensource esp8266 bridge (created by Chris Mullins aka Sidoh) to automatically find and add Milight globes into OpenHab. The first question Openhab 2 users may have is “Why another binding when one already exists?”, The short answer/s to this are that the new OPENSOURCE bridge allows:
+This is an openHAB binding that allows a single opensource esp8266 bridge (created by Chris Mullins aka Sidoh) to automatically find and add Milight globes into openHAB. The first question openHAB users may have is “Why another binding when one already exists?”, The short answer/s to this are that the new OPENSOURCE bridge allows:
 
 + Almost unlimited groups so you can have individual control over an entire house of Milight globes without multiple bridges. A single bridge uses less power for one of many advantages.
 
-+ If using the Milight remotes to control the globes, this binding will update the Openhab controls the moment a key is pressed on the remote.
++ If using the Milight remotes to control the globes, this binding will update the openHAB controls the moment a key is pressed on the remote.
 
 + Auto scan and adding of the globes via paper UI.
 
-+ If you reboot Openhab2 the state of the globes will refresh and display correctly after the reboot due to the hub tracking the states and recording them in the MQTT broker.
++ If you reboot openHAB the state of the globes will refresh and display correctly after the reboot due to the hub tracking the states and recording them in the MQTT broker.
 
 + Many other reasons besides just being opensource and hence can get firmware updates to support new globes and wifi KRACK patches.
 
@@ -39,7 +39,7 @@ Check the blog above on more info on how to do it from mac or linux.
 + Download the latest binding in a JAR format from http://www.pcmus.com/openhab/
 The zip files have a date code in the format DD-MM-YYYY for when the version was built.
 
-+ Open the zip and place the JAR file into your Openhab 'addons' folder. You do not need to install the mqtt binding as this binding is fully standalone and uses the java Paho library. You still require a MQTT broker reachable on your network, mosquitto is one example of a broker and can be installed with the Openhabian config tool, or you can use PaperUI to install the embedded MQTT broker which is found under MISC and not bindings. Do not install more than 1 broker as they can conflict.
++ Open the zip and place the JAR file into your openHAB 'addons' folder. You do not need to install the mqtt binding as this binding is fully standalone and uses the java Paho library. You still require a MQTT broker reachable on your network, mosquitto is one example of a broker and can be installed with the openHABian config tool, or you can use PaperUI to install the embedded MQTT broker which is found under MISC and not bindings. Do not install more than 1 broker as they can conflict.
 https://www.openhab.org/addons/integrations/mqttembeddedbroker/
 
 
@@ -92,7 +92,7 @@ mosquitto_sub -u usernamehere -P passwordhere -p 1883 -v -t 'milight/#'
 You can also use the mosquitto_pub command to send your own commands and watch the bulbs respond. It is handy to do this if a globe I do not own does not work and you wish to request that I add a feature or fix something by giving me the mqtt message that works. Everything this binding does goes in and out via MQTT and it can be watched with the above command.
 
 
-## Setting up the binding in openhab2
+## Setting up the binding in openHAB
 
 Just drop the JAR file into the addons folder and you should have the binding working which can now be setup with text files OR 100% with paperUI. Both methods will be covered below, but I recommend you use textual config as it is worth learning due to the speed you can make changes. Only use 1 method otherwise you will get conflict errors if trying to edit an existing thing using paperUI when the manual method has been used to define the thing.
 
@@ -118,9 +118,9 @@ For example:
 | 0xC210    | 1        | 0xC2101  | 
 | 0xB4CA    | 4        | 0xB4CA4  | 
 | 0xB4CA    | 8        | 0xB4CA8  |
-| 0xB4CA    | 0        | 0xB4CA0  | Group ID of 0 is NOT recommended, use Openhab's groups instead.
+| 0xB4CA    | 0        | 0xB4CA0  | Group ID of 0 is NOT recommended, use openHAB's groups instead.
 
-If the Bridge thing is `espmilighthub:esp8266Bridge:1234567` and the _ThingUID_ is `0xB4C1`, the overall thing ID in OpenHAB for an `rgb_cct` bulb must be:
+If the Bridge thing is `espmilighthub:esp8266Bridge:1234567` and the _ThingUID_ is `0xB4C1`, the overall thing ID in openHAB for an `rgb_cct` bulb must be:
 
 ```
 espmilighthub:rgb_cct:1234567:0xB4C1
@@ -129,7 +129,7 @@ espmilighthub:rgb_cct:1234567:0xB4C1
 
 ## Supported Things
 
-A bridge can have any of these things added which are the types of globes the opensource bridge supports:
+A bridge can have any of these things added which are the types of globes/remotes that the opensource bridge supports:
 
 + cct
 + rgb_cct
@@ -273,7 +273,7 @@ mosquitto_sub -u usernamehere -P passwordhere -p 1883 -v -t 'milight/#'
 ```
 
 
-To see more detailed logs you can do this in the Openhab console:
+To see more detailed logs you can do this in the openHAB console:
 
 ```
 log:set TRACE org.openhab.binding.espmilighthub
@@ -322,7 +322,7 @@ Color  Milight_Hue    "Front Hall" ["Lighting"] {channel="espmilighthub:rgb_cct:
 
 ## How to reduce the delay between globes turning on/off or other setting changes.
 
-If you have lots of globes and openhab turns them all on, you may notice a delay that causes the globes to turn on one by one and the delay can add up when a lot of globes are installed in your house. This is caused by the time it takes to transmit the desired setting to the globe * by how many times the hub repeats transmitting the setting. Since it takes around 2.8ms for a setting to be transmitted, if the firmware is set to repeat the packets 50 times it would then take 2.8*50 = 140ms before the next globe starts to have its new state transmitted by the hub. You can reduce the packet repeats to speed up the response of this binding and the hub, but a few settings need to be considered...
+If you have lots of globes and openHAB turns them all on, you may notice a delay that causes the globes to turn on one by one and the delay can add up when a lot of globes are installed in your house. This is caused by the time it takes to transmit the desired setting to the globe * by how many times the hub repeats transmitting the setting. Since it takes around 2.8ms for a setting to be transmitted, if the firmware is set to repeat the packets 50 times it would then take 2.8*50 = 140ms before the next globe starts to have its new state transmitted by the hub. You can reduce the packet repeats to speed up the response of this binding and the hub, but a few settings need to be considered...
  
 Multiply 2.8 by your packet-repeat value (rough figure of how long it takes to transit to the globe with current firmware) and start trying the DELAY_BETWEEN_MQTT at around that figure.
 
@@ -339,7 +339,7 @@ Only use low repeat values if your hardware is working well, I find the default 
 
 ## How to change the lights from a rule
 
-In an Openhab rule, you can use these commands to change the lights.
+In an openHAB rule, you can use these commands to change the lights.
 
 Send a desired colour in HSB format. (send to an items colour channel)
 
