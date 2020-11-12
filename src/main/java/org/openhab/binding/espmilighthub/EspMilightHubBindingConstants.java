@@ -57,9 +57,9 @@ public class EspMilightHubBindingConstants {
     // Globe channels
     public static final String CHANNEL_LEVEL = "level";
     public static final String CHANNEL_COLOUR = "colour";
-    public static final String CHANNEL_COLOURTEMP = "colourtemperature";
-    public static final String CHANNEL_DISCO_MODE = "discomode";
-    public static final String CHANNEL_BULB_MODE = "bulbmode";
-    public static final String CHANNEL_COMMAND = "bulbcommand";
-    public static final String CHANNEL_SEND_COMMAND = "sendbulbcommand";
+    public static final String CHANNEL_COLOURTEMP = "colourTemperature";
+    public static final String CHANNEL_DISCO_MODE = "discoMode";
+    public static final String CHANNEL_BULB_MODE = "bulbMode";
+    public static final String CHANNEL_COMMAND = "bulbCommand";
+    public static final String CHANNEL_SEND_COMMAND = "sendBulbCommand";
 }

@@ -1,4 +1,4 @@
-# <bindingName> Binding
+# EspMilightHub Binding
 
 This is an openHAB binding that allows a single opensource esp8266 bridge (created by Chris Mullins aka Sidoh) to automatically find and add Milight globes into openHAB. The first question openHAB users may have is “Why another binding when one already exists?”, The short answer/s to this are that the new OPENSOURCE bridge allows:
 

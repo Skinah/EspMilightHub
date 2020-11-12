@@ -151,7 +151,6 @@
 				<default>12</default>
 			</parameter>
 
-
 		</config-description>
 	</bridge-type>
 
@@ -164,12 +163,12 @@
 		<category>Lightbulb</category>
 		<channels>
 			<channel id="level" typeId="level"/>
-			<channel id="colourtemperature" typeId="colourtemperature"/>
+			<channel id="colourTemperature" typeId="colourTemperature"/>
 			<channel id="colour" typeId="colour"/>
-			<channel id="discomode" typeId="discomode"/>
-			<channel id="bulbmode" typeId="bulbmode"/>
-			<channel id="bulbcommand" typeId="bulbcommand"/>
-			<channel id="sendbulbcommand" typeId="sendbulbcommand"/>
+			<channel id="discoMode" typeId="discoMode"/>
+			<channel id="bulbMode" typeId="bulbMode"/>
+			<channel id="bulbCommand" typeId="bulbCommand"/>
+			<channel id="sendBulbCommand" typeId="sendBulbCommand"/>
 		</channels>
 	</thing-type>
 
@@ -182,12 +181,12 @@
 		<category>Lightbulb</category>
 		<channels>
 			<channel id="level" typeId="level"/>
-			<channel id="colourtemperature" typeId="colourtemperature"/>
+			<channel id="colourTemperature" typeId="colourTemperature"/>
 			<channel id="colour" typeId="colour"/>
-			<channel id="discomode" typeId="discomode"/>
-			<channel id="bulbmode" typeId="bulbmode"/>
-			<channel id="bulbcommand" typeId="bulbcommand"/>
-			<channel id="sendbulbcommand" typeId="sendbulbcommand"/>
+			<channel id="discoMode" typeId="discoMode"/>
+			<channel id="bulbMode" typeId="bulbMode"/>
+			<channel id="bulbCommand" typeId="bulbCommand"/>
+			<channel id="sendBulbCommand" typeId="sendBulbCommand"/>
 		</channels>
 	</thing-type>
 
@@ -200,7 +199,7 @@
 		<category>Lightbulb</category>
 		<channels>
 			<channel id="level" typeId="level"/>
-			<channel id="colourtemperature" typeId="colourtemperature"/>
+			<channel id="colourTemperature" typeId="colourTemperature"/>
 		</channels>
 	</thing-type>
 
@@ -213,7 +212,7 @@
 		<category>Lightbulb</category>
 		<channels>
 			<channel id="level" typeId="level"/>
-			<channel id="colourtemperature" typeId="colourtemperature"/>
+			<channel id="colourTemperature" typeId="colourTemperature"/>
 		</channels>
 	</thing-type>
 
@@ -227,10 +226,10 @@
 		<channels>
 			<channel id="level" typeId="level"/>
 			<channel id="colour" typeId="colour"/>
-			<channel id="discomode" typeId="discomode"/>
-			<channel id="bulbmode" typeId="bulbmode"/>
-			<channel id="bulbcommand" typeId="bulbcommand"/>
-			<channel id="sendbulbcommand" typeId="sendbulbcommand"/>
+			<channel id="discoMode" typeId="discoMode"/>
+			<channel id="bulbMode" typeId="bulbMode"/>
+			<channel id="bulbCommand" typeId="bulbCommand"/>
+			<channel id="sendBulbCommand" typeId="sendBulbCommand"/>
 		</channels>
 	</thing-type>
 
@@ -244,10 +243,10 @@
 		<channels>
 			<channel id="level" typeId="level"/>
 			<channel id="colour" typeId="colour"/>
-			<channel id="discomode" typeId="discomode"/>
-			<channel id="bulbmode" typeId="bulbmode"/>
-			<channel id="bulbcommand" typeId="bulbcommand"/>
-			<channel id="sendbulbcommand" typeId="sendbulbcommand"/>
+			<channel id="discoMode" typeId="discoMode"/>
+			<channel id="bulbMode" typeId="bulbMode"/>
+			<channel id="bulbCommand" typeId="bulbCommand"/>
+			<channel id="sendBulbCommand" typeId="sendBulbCommand"/>
 		</channels>
 	</thing-type>
 
@@ -261,38 +260,26 @@
 		</tags>
 	</channel-type>
 
-	<channel-type id="colourtemperature">
+	<channel-type id="colourTemperature">
 		<item-type>Dimmer</item-type>
-		<label>Color temperature</label>
+		<label>Colour Temperature</label>
 		<description>Change from cool to warm white with this control.</description>
 		<category>DimmableCT</category>
 	</channel-type>
 
 	<channel-type id="colour">
 		<item-type>Color</item-type>
-		<label>Color</label>
-		<description>Allows you to change the color of the globe.</description>
+		<label>Colour</label>
+		<description>Allows you to change the colour, brightness and saturation of the globe.</description>
 		<category>ColorLight</category>
 		<tags>
 			<tag>Lighting</tag>
 		</tags>
 	</channel-type>
 
-	<channel-type id="nightmode">
-		<item-type>Switch</item-type>
-		<label>Nightmode</label>
-		<description>Night mode: Lowest level of light that locks out changes from the remotes.</description>
-	</channel-type>
-
-	<channel-type id="saturation" advanced="true">
-		<item-type>Dimmer</item-type>
-		<label>Saturation</label>
-		<description>Saturation is how much white light is added to a pure colour.</description>
-	</channel-type>
-
-	<channel-type id="bulbcommand">
+	<channel-type id="bulbCommand" advanced="true">
 		<item-type>String</item-type>
-		<label>Command to send</label>
+		<label>Bulb Command</label>
 		<description>Choose the command to send to the globe then press the button to send it multiple times. Note: Not all
 			globes support all commands.</description>
 		<state>
@@ -314,15 +301,15 @@
 		</state>
 	</channel-type>
 
-	<channel-type id="sendbulbcommand">
+	<channel-type id="sendBulbCommand" advanced="true">
 		<item-type>Switch</item-type>
-		<label>Send selected command</label>
+		<label>Send Bulb Command</label>
 		<description>Send the command selected in the list.</description>
 	</channel-type>
 
-	<channel-type id="bulbmode">
+	<channel-type id="bulbMode" advanced="true">
 		<item-type>String</item-type>
-		<label>Current bulb mode</label>
+		<label>Bulb Mode</label>
 		<description>Displays the mode the bulb is currently in.</description>
 		<state readOnly="true">
 			<options>
@@ -334,10 +321,10 @@
 		</state>
 	</channel-type>
 
-	<channel-type id="discomode">
-		<item-type>Number</item-type>
-		<label>Disco mode</label>
-		<description>Switch to a Disco mode directly by using the number. Not supported by all globe types.</description>
+	<channel-type id="discoMode" advanced="true">
+		<item-type>String</item-type>
+		<label>Disco Mode</label>
+		<description>Switch to a Disco mode directly.</description>
 		<state>
 			<options>
 				<option value="0">Disco 0</option>
